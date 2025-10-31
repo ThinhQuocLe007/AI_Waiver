@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE / Editor specific
+.vscode/
+.idea/
+
+# Environment folders
+venv/
+env/
+.env
+
+# Audio data files
+*.wav
+*.mp3
+
+# Other
+*.ipynb_checkpoints
