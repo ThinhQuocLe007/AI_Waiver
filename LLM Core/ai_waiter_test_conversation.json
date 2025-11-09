@@ -1,0 +1,38 @@
+[
+  {
+    "user": "Xin chào, menu hôm nay có gì?",
+    "assistant": "Chào bạn! 😊 Chúc bạn có một bữa ăn ngon tại nhà hàng chúng tôi hôm nay!\n\nHôm nay, chúng tôi có nhiều món ăn hấp dẫn để lựa chọn.  Bạn thấy đấy, chúng ta có **Canh Nấm Hạt Sen (Chay)**, một món canh thanh đạm và bổ dưỡng với nấm đông cô, nấm bào ngư, hạt sen bùi bùi và cà rốt.  Giá của món này là 55.",
+    "timestamp": "2025-11-09T22:06:29.254833",
+    "context_used": "Here are the relevant menu items:\n\n1. **Canh Nấm Hạt Sen (Chay)** (Price: 55000 VND)\n   Description:..."
+  },
+  {
+    "user": "Tôi muốn tìm món cay",
+    "assistant": "Bạn đang tìm kiếm một món ăn có vị cay đấy! 🌶️\n\nỞ nhà hàng chúng tôi có một số lựa chọn cho bạn. Món đầu tiên tôi muốn giới thiệu là **Đậu Hũ Sốt Nấm Tứ Xuyên (Chay)**. Đây là một món chay rất nổi tiếng của Trung Quốc, với đậu hũ non mềm mượt và sốt cùng nấm hương, sa tế Tứ Xuyên sẽ mang lại vị cay nồng đặc trưng, béo ngậy... Giá cho món này là 65.000 đồng 🍜\n\nHãy xem xét nó nhé? Bạn có thích thử không? 😊",
+    "timestamp": "2025-11-09T22:06:33.037626",
+    "context_used": "Here are the relevant menu items:\n\n1. **Đậu Hũ Sốt Nấm Tứ Xuyên (Chay)** (Price: 65000 VND)\n   Descr..."
+  },
+  {
+    "user": "Có món chay nào không?",
+    "assistant": "Chào bạn! 😊 Nhà hàng của chúng tôi có rất nhiều món ăn chay ngon.  Bạn ơi, muốn thử gì đó nhẹ nhàng nhưng vẫn đảm bảo vị giác? 🍜\n\nTôi xin giới thiệu món **Đậu Hũ Sốt Nấm Tứ Xuyên (Chay)** (65000 VND).  Đây là một trong những món ăn chay được yêu thích nhất của chúng tôi! Món này có đậu hũ non mềm mượt, sốt cùng nấm hương và sa tế Tứ Xuyên.",
+    "timestamp": "2025-11-09T22:06:38.209207",
+    "context_used": "Here are the relevant menu items:\n\n1. **Đậu Hũ Sốt Nấm Tứ Xuyên (Chay)** (Price: 65000 VND)\n   Descr..."
+  },
+  {
+    "user": "Gợi ý món ngon cho 2 người",
+    "assistant": "Xin chào ạ! Bạn có muốn biết gợi ý món ăn ngon cho 2 người không? 🍴\n\nTôi có một số món ăn ngon và bổ dưỡng mà bạn có thể thử.  Nếu bạn thích món canh, tôi có thể giới thiệu **Canh Nấm Hạt Sen (Chay)**.  Món này rất tốt cho sức khỏe, gồm nấm đông cô, nấm bào ngư, hạt sen bùi bùi và cà rốt.",
+    "timestamp": "2025-11-09T22:06:43.992861",
+    "context_used": "Here are the relevant menu items:\n\n1. **Canh Nấm Hạt Sen (Chay)** (Price: 55000 VND)\n   Description:..."
+  },
+  {
+    "user": "Món nào có giá khoảng 100k?",
+    "assistant": "Món Canh Nấm Hạt Sen (Chay) giá 55.000 đồng 😊, còn thấp so với mức bạn đang tìm kiếm. Bạn muốn thử món nướng không? Tôi nghĩ Sườn Nướng BBQ có giá khoảng 125.000 đồng, rất ngon và được nhiều người yêu thích 🍖️",
+    "timestamp": "2025-11-09T22:06:46.534260",
+    "context_used": "Here are the relevant menu items:\n\n1. **Sườn Nướng BBQ** (Price: 125000 VND)\n   Description: Dẻ sườn..."
+  },
+  {
+    "user": "Tôi thích hải sản, có món gì phù hợp?",
+    "assistant": "Không có món hải sản nào trong menu của chúng tôi 😊. Nhưng chúng tôi có một số món chay rất ngon và bổ dưỡng! Bạn muốn thử Canh Nấm Hạt Sen (Chay) hay Đậu Hũ Sốt Nấm Tứ Xuyên (Chay)? Cả hai đều rất phổ biến và được yêu thích bởi khách hàng của chúng tôi 🍜",
+    "timestamp": "2025-11-09T22:06:49.284957",
+    "context_used": "Here are the relevant menu items:\n\n1. **Canh Nấm Hạt Sen (Chay)** (Price: 55000 VND)\n   Description:..."
+  }
+]

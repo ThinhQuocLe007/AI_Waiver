@@ -24,7 +24,7 @@ class RAGSystem:
 
             # Load embedding model
             print(f'Loading embedding model {self.model_name}...')
-            self.encoder = SentenceTransformer(self.model_name) 
+            self.encoder = SentenceTransformer(self.model_name, token= False) 
 
             self.index, self.embeddings = self._build_faiss_index()
             print('✅ RAG system initialized successfully.')
@@ -96,7 +96,6 @@ class RAGSystem:
             if 'category' in item: 
                 desc += f" Category: {item['category']}"
             if 'ingredients' in item: 
-                # Fixed: Typo from Ingredident to Ingredients
                 desc += f" Ingredients: {item['ingredients']}"
             descriptions.append(desc)
             
@@ -161,7 +160,6 @@ class RAGSystem:
         """
         Get formatted context for LLMs 
         """
-        # Fixed: Method name from search to search_index
         results = self.search_index(query, top_k)
 
         if not results: 
