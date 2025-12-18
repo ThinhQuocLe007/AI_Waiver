@@ -51,3 +51,16 @@ class VectorStore:
         except Exception as e:
             print(f"❌ Vector search error: {e}")
             return []
+    
+    def search_with_scores(self, query: str, k: int = 4) -> List[Tuple[Document, float]]:
+        """Search using vector similarity WITH scores"""
+        if not self.vectorstore:
+            return []
+        
+        try:
+            # Returns list of tuples: (Document, similarity_score)
+            results = self.vectorstore.similarity_search_with_score(query, k=k)
+            return results
+        except Exception as e:
+            print(f"❌ Vector search with scores error: {e}")
+            return []
