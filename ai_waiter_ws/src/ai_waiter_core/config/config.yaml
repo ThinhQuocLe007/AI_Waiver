@@ -1,0 +1,15 @@
+paths:
+  input_data:
+    menu_file: '/home/lequocthinh/Desktop/BackupCODE/pythonCode/AI_Waiver/data/raw/menu.json'
+    restaurant_info: '/home/lequocthinh/Desktop/BackupCODE/pythonCode/AI_Waiver/data/raw/restaurant_info.txt'
+
+  vector_store:
+    faiss_db: '/home/lequocthinh/Desktop/BackupCODE/pythonCode/AI_Waiver/data/vector_db/faiss_index'
+    bm25_file: '/home/lequocthinh/Desktop/BackupCODE/pythonCode/AI_Waiver/data/vector_db/bm25.pkl'
+
+keys: 
+  HF_TOKEN: "your_huggingface_token_here"
+
+system: 
+  device: 'cuda'
+  model_name: 'llama3.1'

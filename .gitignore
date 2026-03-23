@@ -1,20 +1,62 @@
-# Byte-compiled / optimized / DLL files
+# Environment Variables
+.env
+.env.local
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# IDE / Editor specific
+# Virtual Environment
+venv/
+ENV/
+
+# IDEs
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Environment folders
-venv/
-env/
-.env
+# Project Specific - Large Files & Data
+data/vector_db/
+data/sqlite/
+data/samples/
+data/audio_sources/
+**/pretrained_models/
+**/__pycache__/
 
-# Audio data files
-*.wav
-*.mp3
+# Evaluation & Logs
+evals/results/
+logs/
+*.log
+*.txt
+*.text
+*.json
+!ai_waiter_ws/**/package.xml
+!ai_waiter_ws/**/setup.py
+!data/raw/menu.json
 
-# Other
-*.ipynb_checkpoints
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.docx
+*.pdf
