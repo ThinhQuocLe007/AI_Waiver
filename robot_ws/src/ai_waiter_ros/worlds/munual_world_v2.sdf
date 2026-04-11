@@ -1,0 +1,3568 @@
+<sdf version='1.9'>
+  <world name='hema_neon_modular_restaurant'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='ignition::gazebo::systems::Physics' filename='ignition-gazebo-physics-system'/>
+    <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
+    <plugin name='ignition::gazebo::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
+    <plugin name='ignition::gazebo::systems::Sensors' filename='ignition-gazebo-sensors-system'/>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground'>
+      <static>true</static>
+      <link name='l'>
+        <visual name='v'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1 1</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>3.53984 0 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='k'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='base_visual'>
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <collision name='base_collision'>
+          <pose>0 0 0.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3 1 1</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_counter'>
+          <pose>0 0 1.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3.2 1.2 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3 1</ambient>
+            <diffuse>0.3 0.3 0.3 1</diffuse>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <visual name='back_wall'>
+          <pose>0 -0.5 1.5 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>3 0.1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.9 1</ambient>
+            <diffuse>0.9 0.9 0.9 1</diffuse>
+          </material>
+        </visual>
+        <visual name='tech_accent'>
+          <pose>0 -0.45 1.7 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2.5 0.05 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.6 1 1</ambient>
+            <diffuse>0 0.6 1 1</diffuse>
+            <emissive>0 0.3 0.5 1</emissive>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-6 0 0 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0.042371 0.826186 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_bot'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>4.89741 -1 1.1 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cne'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor_h'>
+          <pose>0.5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <visual name='floor_v'>
+          <pose>0 0.5 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.6 1 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <visual name='accent_h'>
+          <pose>0.5 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <visual name='accent_v'>
+          <pose>0 0.5 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <collision name='c1'>
+          <pose>0.5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='c2'>
+          <pose>0 0.5 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.6 1 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>4 1 1.1 0 -0 3.14159</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='cse'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor_h'>
+          <pose>0.5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <visual name='floor_v'>
+          <pose>0 0.5 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.6 1 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <visual name='accent_h'>
+          <pose>0.5 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <visual name='accent_v'>
+          <pose>0 0.5 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <collision name='c1'>
+          <pose>0.5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='c2'>
+          <pose>0 0.5 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.6 1 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>4 -1 1.1 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='csw'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor_h'>
+          <pose>0.5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <visual name='floor_v'>
+          <pose>0 0.5 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.6 1 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <visual name='accent_h'>
+          <pose>0.5 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <visual name='accent_v'>
+          <pose>0 0.5 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.05 1 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+        <collision name='c1'>
+          <pose>0.5 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <collision name='c2'>
+          <pose>0 0.5 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.6 1 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-4.14494 -6.95645 1.1 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-3.6396 0.551825 1.15 0 0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>3.4797 1.3 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>3.4 1.3 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='ti2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>2.4 0.7 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sl'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-4.29998 -6.09821 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>4.3 0 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bo1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>2.4 -1.3 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bo2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-2.4 -1.3 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bi1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>3.4 -0.7 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bi2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>3.26288 -0.7 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='bi3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-4.19516 -0.7 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl1'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>-3.04302 1.8 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='q1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='base'>
+          <geometry>
+            <box>
+              <size>0.1 0.005 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='pattern'>
+          <pose>0 0.003 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.06 0.001 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>-2 1.3 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl2'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>4.11691 0.2 -0.459689 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='q2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='base'>
+          <geometry>
+            <box>
+              <size>0.1 0.005 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='pattern'>
+          <pose>0 0.003 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.06 0.001 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0.7 1.15 0 -0 3.14159</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl3'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>2 1.8 0 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='q3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='base'>
+          <geometry>
+            <box>
+              <size>0.1 0.005 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 1</ambient>
+            <diffuse>0 0 0 1</diffuse>
+          </material>
+        </visual>
+        <visual name='pattern'>
+          <pose>0 0.003 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.06 0.001 0.06</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <pose>0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>2 1.3 1.15 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_bot_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>-3.62712 0.818563 1.1 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_bot_1_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>-2.6085 0.814202 1.1 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_bot_1_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>-1.63631 0.829384 1.1 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl1_1'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>-1.87383 -0.592345 0.003625 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-3.64459 1.13715 1.15 0 -0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-2.16822 1.19114 1.15 0 0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_bot_1_2_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.638032 0.853185 1.1 0 -0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.767653 1.15404 1.15 0 -0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.717092 0.557207 1.15 0 -0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2_3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-2.27054 0.495077 1.15 0 0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2_4'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-2.7255 0.497775 1.15 0 -0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>0.021355 1.83188 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.00347 2.8191 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>0.025231 -0.107324 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_3_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>0.028373 -1.10615 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_3_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>0.041721 -2.08925 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.273309 1.69053 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.265682 2.78041 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.275773 1.22629 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_4'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.275773 -0.425778 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_5'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.316623 -1.8934 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_6'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.249233 -1.85561 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_7'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.273308 0.042936 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_2_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.010472 3.79407 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='t_top_2_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='floor'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+        <collision name='floor_c'>
+          <geometry>
+            <box>
+              <size>1 0.6 0.02</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='pedestal'>
+          <pose>0 0 -0.55 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.98 0.5 1.1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.95 0.95 0.95 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+        <visual name='accent'>
+          <pose>0 0 0.011 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.05 0.005</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0.4 0.8 1</ambient>
+            <diffuse>0 0.4 0.8 1</diffuse>
+            <emissive>0 0.2 0.4 1</emissive>
+          </material>
+        </visual>
+      </link>
+      <pose>0.081138 -3.06991 1.1 0 0 -1.55527</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.333723 3.22378 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2_2'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.262347 3.74838 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2_3'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.323874 -2.91061 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2_4'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.245931 -2.87388 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2_2_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.163046 -3.44669 1.15 0 -0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2_1_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0.262687 5.25381 1.15 0 -0 0.379586</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='to1_2_2_1_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.261217 4.2181 1.15 0 -0 -3.09914</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='sr_2_4_1'>
+      <static>true</static>
+      <link name='link'>
+        <visual name='panel'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>1 0.5 0 1</ambient>
+            <diffuse>1 0.5 0 1</diffuse>
+            <specular>1 1 1 1</specular>
+            <emissive>0.5 0.25 0 1</emissive>
+          </material>
+        </visual>
+        <collision name='panel_c'>
+          <pose>0 0 0.1 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.03 0.2</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='top_rail'>
+          <pose>0 0 0.2 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>1 0.04 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.1 0.1 0.1 1</ambient>
+            <diffuse>0.1 0.1 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>-0.317456 3.69112 1.15 0 -0 1.5708</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl3_1'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>-0.953667 2.33038 0 0 0 -1.5469</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl3_1_1'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>-0.913648 -0.966853 0 -0 -0 3.14129</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl3_1_1_1'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>1.25791 -1.17614 0 0 -0 3.14129</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name='tbl3_1_1_2'>
+      <static>true</static>
+      <model name='cafe_table'>
+        <static>true</static>
+        <link name='link'>
+          <collision name='surface'>
+            <pose>0 0 0.755 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.913 0.913 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='column'>
+            <pose>0 0 0.37 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.042 0.042 0.74</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <collision name='base'>
+            <pose>0 0 0.02 0 0 0</pose>
+            <geometry>
+              <box>
+                <size>0.56 0.56 0.04</size>
+              </box>
+            </geometry>
+            <surface>
+              <friction>
+                <ode/>
+              </friction>
+              <bounce/>
+              <contact/>
+            </surface>
+          </collision>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/cafe table/3/files/meshes/cafe_table.dae</uri>
+              </mesh>
+            </geometry>
+          </visual>
+        </link>
+      </model>
+      <pose>1.6779 2.23261 -0.341977 0 -0 1.5426</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 -0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.1 -0.9</direction>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>10</range>
+        <linear>1</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

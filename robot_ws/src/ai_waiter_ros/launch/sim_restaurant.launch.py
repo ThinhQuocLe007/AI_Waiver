@@ -1,37 +1,49 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import AppendEnvironmentVariable, IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 def generate_launch_description():
-    # 1. Get the install path to your ROS 2 package
-    pkg_ai_waiter_ros = get_package_share_directory('ai_waiter_ros')
+    # 1. Định vị thư mục workspace
+    pkg_share = get_package_share_directory('ai_waiter_ros')
+    
+    # Bước lùi để tìm thư mục src (Fail-safe)
+    ws_root = pkg_share
+    for _ in range(4):
+        ws_root = os.path.dirname(ws_root)
+    
+    src_worlds_path = os.path.join(ws_root, 'src', 'ai_waiter_ros', 'worlds')
+
+    # 2. Khai báo tham số world_file (Mặc định là manual_world.sdf)
+    world_file_arg = DeclareLaunchArgument(
+        'world_file',
+        default_value='manual_world.sdf',
+        description='Name of the world file to load from src/ai_waiter_ros/worlds/'
+    )
+
+    # 3. Tạo đường dẫn tuyệt đối đến file world được chọn
+    # Nếu Gazebo không tìm thấy, nó sẽ báo lỗi thay vì load sảnh trống
+    world_path = PathJoinSubstitution([
+        src_worlds_path,
+        LaunchConfiguration('world_file')
+    ])
+
+    # 4. Tìm package gazebo
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
-    # 2. Tell Gazebo where to find your custom models (table, chair, track)
-    # We add both the install path and the source path to be extra safe
-    model_path = os.path.join(pkg_ai_waiter_ros, 'models')
-    src_model_path = os.path.join(get_package_share_directory('ai_waiter_ros'), '..', '..', '..', 'src', 'ai_waiter_ros', 'models')
-    
-    # Ignition Gazebo (Fortress) uses this
-    set_ign_path = AppendEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH', model_path)
-    # Newer Gazebo (Garden/Ionic) uses this
-    set_gz_path = AppendEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path)
-
-    # 3. Path to your specific world file
-    world_file = os.path.join(pkg_ai_waiter_ros, 'worlds', 'ai_waiver_restaurant.sdf')
-
-    # 4. Include the default Gazebo launch file
+    # 5. Khởi động Gazebo
     start_gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')
         ),
-        launch_arguments={'gz_args': f'-r {world_file}'}.items()
+        launch_arguments={
+            'gz_args': [ '-r ', world_path ]
+        }.items()
     )
 
     return LaunchDescription([
-        set_ign_path,
-        set_gz_path,
+        world_file_arg,
         start_gazebo
     ])

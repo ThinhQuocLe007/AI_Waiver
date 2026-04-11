@@ -13,14 +13,9 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*.sdf')),
-        
-        # This part correctly installs every model folder without flattening them!
-        (os.path.join('share', package_name, 'models/delivery_track'), glob('models/delivery_track/*')),
-        (os.path.join('share', package_name, 'models/delivery_track_corner'), glob('models/delivery_track_corner/*')),
-        (os.path.join('share', package_name, 'models/kitchen_hub'), glob('models/kitchen_hub/*')),
-        (os.path.join('share', package_name, 'models/kitchen_monitor'), glob('models/kitchen_monitor/*')),
-        (os.path.join('share', package_name, 'models/table'), glob('models/table/*')),
-        (os.path.join('share', package_name, 'models/chair'), glob('models/chair/*')),
+    ] + [
+        (os.path.join('share', package_name, os.path.dirname(p)), [p])
+        for p in glob('models/*/*', recursive=True)
     ],
 
     install_requires=['setuptools'],

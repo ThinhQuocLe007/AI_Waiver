@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="ai_waiver_restaurant">
+    
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="restaurant_light">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- 1. Improved Floor System (Glassmorphism aesthetics) -->
+    <model name="floor_kitchen">
+      <static>true</static><pose>-5 0 0.01 0 0 0</pose>
+      <link name="l"><visual name="v"><geometry><box><size>4 6 0.01</size></box></geometry>
+      <material><ambient>0.1 0.15 0.2 1</ambient><diffuse>0.1 0.15 0.2 1</diffuse></material></visual></link>
+    </model>
+    <model name="floor_dining">
+      <static>true</static><pose>2 0 0 0 0 0</pose>
+      <link name="l"><visual name="v"><geometry><box><size>10 8 0.01</size></box></geometry>
+      <material><ambient>0.9 0.9 0.95 1</ambient><diffuse>0.9 0.9 0.95 1</diffuse></material></visual></link>
+    </model>
+
+    <!-- 2. Delivery Track Loop (8m x 2m) -->
+    <!-- Lower Loop (Kitchen Side) -->
+    <include><static>true</static><uri>model://kitchen_hub</uri><name>kitchen</name><pose>-6 1 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://kitchen_monitor</uri><name>monitor</name><pose>-6 1.8 1.1 0 0 0</pose></include>
+
+    <!-- Corner NW --> <include><static>true</static><uri>model://delivery_track_corner</uri><name>c_nw</name><pose>-4 1 1.1 0 0 -1.5708</pose></include>
+    <!-- Top Straight -->
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_top_1</name><pose>-2 1 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_top_2</name><pose>0 1 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_top_3</name><pose>2 1 1.1 0 0 0</pose></include>
+    <!-- Corner NE --> <include><static>true</static><uri>model://delivery_track_corner</uri><name>c_ne</name><pose>4 1 1.1 0 0 3.14159</pose></include>
+    
+    <!-- Right Straight --> <include><static>true</static><uri>model://delivery_track</uri><name>t_right</name><pose>4 0 1.1 0 0 1.5708</pose></include>
+    
+    <!-- Corner SE --> <include><static>true</static><uri>model://delivery_track_corner</uri><name>c_se</name><pose>4 -1 1.1 0 0 1.5708</pose></include>
+    <!-- Bottom Straight -->
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_bot_1</name><pose>2 -1 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_bot_2</name><pose>0 -1 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_bot_3</name><pose>-2 -1 1.1 0 0 0</pose></include>
+    <!-- Corner SW --> <include><static>true</static><uri>model://delivery_track_corner</uri><name>c_sw</name><pose>-4 -1 1.1 0 0 0</pose></include>
+    
+    <!-- Left Straight (Return to Kitchen) -->
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_left</name><pose>-4 0 1.1 0 0 1.5708</pose></include>
+
+    <!-- 3. Staggered Dining Tables (Zig-Zag) -->
+    <!-- Tables along the "Top" track (Forward) -->
+    <include><static>true</static><uri>model://table</uri><name>table_1</name><pose>-3 1.8 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_1</name><pose>-3 2.5 0 0 0 3.14159</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_1</name><pose>-3 1.32 1.15 0 0 0</pose></include>
+
+    <include><static>true</static><uri>model://table</uri><name>table_2</name><pose>-1 0.2 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_2</name><pose>-1 -0.5 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_2</name><pose>-1 0.68 1.15 0 0 3.14159</pose></include>
+
+    <include><static>true</static><uri>model://table</uri><name>table_3</name><pose>1 1.8 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_3</name><pose>1 2.5 0 0 0 3.14159</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_3</name><pose>1 1.32 1.15 0 0 0</pose></include>
+
+    <include><static>true</static><uri>model://table</uri><name>table_4</name><pose>3 0.2 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_4</name><pose>3 -0.5 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_4</name><pose>3 0.68 1.15 0 0 3.14159</pose></include>
+
+    <!-- Tables along the "Bottom" track (Return) -->
+    <include><static>true</static><uri>model://table</uri><name>table_5</name><pose>1 -1.8 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_5</name><pose>1 -2.5 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_5</name><pose>1 -1.32 1.15 0 0 3.14159</pose></include>
+
+    <include><static>true</static><uri>model://table</uri><name>table_6</name><pose>-1 -0.2 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_6</name><pose>-1 0.5 0 0 0 3.14159</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_6</name><pose>-1 -0.68 1.15 0 0 0</pose></include>
+
+    <!-- 4. Boundaries & Walls -->
+    <model name="wall_back"><static>true</static><pose>7 0 1 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.1 8 2</size></box></geometry><material><ambient>0 0.5 0.5 0.2</ambient><diffuse>0 0.5 0.5 0.2</diffuse></material></visual></link></model>
+    <model name="wall_left"><static>true</static><pose>2 4 1 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>10 0.1 2</size></box></geometry><material><ambient>0 0.5 0.5 0.2</ambient><diffuse>0 0.5 0.5 0.2</diffuse></material></visual></link></model>
+    <model name="wall_right"><static>true</static><pose>2 -4 1 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>10 0.1 2</size></box></geometry><material><ambient>0 0.5 0.5 0.2</ambient><diffuse>0 0.5 0.5 0.2</diffuse></material></visual></link></model>
+
+  </world>
+</sdf>

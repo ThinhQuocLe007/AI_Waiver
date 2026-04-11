@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="restaurant_kit">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+          <material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Đồ nghề có sẵn để ông copy-paste hoặc di chuyển -->
+    <include><static>true</static><uri>model://kitchen_hub</uri><name>kitchen_base</name><pose>-2 0 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track</uri><name>track_sample</name><pose>0 0 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track_corner</uri><name>corner_sample</name><pose>2 0 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://table</uri><name>table_sample</name><pose>0 2 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_sample</name><pose>0 2.8 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://qr_marker</uri><name>qr_sample</name><pose>0 0.5 1.15 0 0 0</pose></include>
+
+  </world>
+</sdf>

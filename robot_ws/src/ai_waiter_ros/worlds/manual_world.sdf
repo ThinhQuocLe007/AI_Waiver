@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="hema_t_junction_pro_super_clean">
+    <physics name="1ms" type="ignored"><max_step_size>0.001</max_step_size></physics>
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors"/>
+
+    <light type="directional" name="sun"><pose>0 0 10 0 0 0</pose><diffuse>1 1 1 1</diffuse><specular>1 1 1 1</specular><direction>-0.5 0.1 -0.9</direction></light>
+    <model name="ground"><static>true</static><link name="l"><visual name="v"><geometry><plane><normal>0 0 1</normal></plane></geometry><material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material></visual></link></model>
+
+    <!-- KITCHEN (Bottom) -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/kitchen_hub</uri><name>k</name><pose>0 -4.6 1.0 0 0 0</pose></include>
+
+    <!-- T-JUNCTION TRACKS (Geometry Fix) -->
+    <model name="track_stem"><static>true</static><pose>0 -2.45 1.1 0 0 0</pose>
+      <link name="l">
+        <visual name="v"><geometry><box><size>0.6 4.3 0.02</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <visual name="ped"><pose>0 0 -0.55 0 0 0</pose><geometry><box><size>0.5 4.3 1.1</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+        <visual name="a"><pose>0 0 0.01 0 0 0</pose><geometry><box><size>0.05 4.3 0.005</size></box></geometry><material><ambient>0 0.5 1 1</ambient><diffuse>0 0.5 1 1</diffuse><emissive>0 0.2 1 1</emissive></material></visual>
+      </link>
+    </model>
+    <model name="track_crossbar"><static>true</static><pose>0 0 1.1 0 0 0</pose>
+      <link name="l">
+        <visual name="v"><geometry><box><size>8.0 0.6 0.02</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <visual name="ped"><pose>0 0 -0.55 0 0 0</pose><geometry><box><size>8.0 0.5 1.1</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+        <visual name="a"><pose>0 0 0.01 0 0 0</pose><geometry><box><size>8.0 0.05 0.005</size></box></geometry><material><ambient>0 0.5 1 1</ambient><diffuse>0 0.5 1 1</diffuse><emissive>0 0.2 1 1</emissive></material></visual>
+      </link>
+    </model>
+
+    <!-- NEON ORANGE BOUNDARIES (Refined Split) -->
+    <!-- Stem Sides -->
+    <model name="sw_l"><static>true</static><pose>-0.3 -2.45 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 4.3 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="sw_r"><static>true</static><pose>0.3 -2.45 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 4.3 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+
+    <!-- Crossbar Inner (Bottom Side y=-0.3) -->
+    <model name="bw_inner_l"><static>true</static><pose>-3.0 -0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>2.0 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="bw_inner_ml"><static>true</static><pose>-0.65 -0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.7 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="bw_inner_mr"><static>true</static><pose>0.65 -0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.7 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="bw_inner_r"><static>true</static><pose>3.0 -0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>2.0 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+
+    <!-- Crossbar Outer (Top Side y=0.3) -->
+    <model name="bw_outer_l"><static>true</static><pose>-3.75 0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.5 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="bw_outer_m"><static>true</static><pose>0.0 0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>5.0 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="bw_outer_r"><static>true</static><pose>3.75 0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.5 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+
+    <!-- End Caps -->
+    <model name="el"><static>true</static><pose>-4.0 0 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 0.6 0.3</size></box></geometry><material><ambient>1 0.5 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="er"><static>true</static><pose>4.0 0 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 0.6 0.3</size></box></geometry><material><ambient>1 0.5 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+
+    <!-- 4 DINING ZONES WITH VERTICAL WALL QRs -->
+    <!-- zone1 (Top Left) -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>t1</name><pose>-3 1.1 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri><name>t1c</name><pose>-3 1.5 0 0 0 -1.57</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q1</name><pose>-3 0.29 1.25 -1.57 3.14159 0</pose></include>
+
+    <!-- zone2 (Bottom Left) -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>t2</name><pose>-1.5 -1.1 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri><name>t2c</name><pose>-1.5 -1.5 0 0 0 1.57</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q2</name><pose>-1.5 -0.29 1.25 -1.57 0 0</pose></include>
+
+    <!-- zone3 (Bottom Right) -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>t3</name><pose>1.5 -1.1 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri><name>t3c</name><pose>1.5 -1.5 0 0 0 1.57</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q3</name><pose>1.5 -0.29 1.25 -1.57 0 0</pose></include>
+
+    <!-- zone4 (Top Right) -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>t4</name><pose>3 1.1 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri><name>t4c</name><pose>3 1.5 0 0 0 -1.57</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q4</name><pose>3 0.29 1.25 -1.57 3.14159 0</pose></include>
+
+  </world>
+</sdf>

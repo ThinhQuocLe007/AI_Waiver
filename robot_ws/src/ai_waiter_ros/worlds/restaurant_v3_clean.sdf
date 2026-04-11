@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="restaurant_v3_clean">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="main_sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Sàn nhà -->
+    <model name="floor_tile">
+      <static>true</static><pose>0 0 0.01 0 0 0</pose>
+      <link name="l"><visual name="v"><geometry><box><size>20 20 0.01</size></box></geometry>
+      <material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material></visual></link>
+    </model>
+
+    <!-- 1. Bộ Kit mẫu để ông bắt đầu -->
+    <include><static>true</static><uri>model://kitchen_hub</uri><name>k_base</name><pose>-4 0 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://delivery_track</uri><name>t_sample</name><pose>0 0 1.1 0 0 0</pose></include>
+    <include><static>true</static><uri>model://table</uri><name>table_sample</name><pose>0 2 0 0 0 0</pose></include>
+    <include><static>true</static><uri>model://chair</uri><name>chair_sample</name><pose>0 2.8 0 0 0 0</pose></include>
+
+  </world>
+</sdf>

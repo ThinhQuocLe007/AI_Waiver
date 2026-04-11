@@ -3,60 +3,29 @@
   <model name="delivery_track">
     <static>true</static>
     <link name="link">
-      <!-- Main Track Countertop (Pure White) -->
+      <!-- Main Track Countertop (1.0m Unit Length) -->
       <visual name="floor">
-        <geometry><box><size>2.0 0.6 0.02</size></box></geometry>
+        <geometry><box><size>1.0 0.6 0.02</size></box></geometry>
         <material>
-          <ambient>1 1 1 1</ambient>
-          <diffuse>1 1 1 1</diffuse>
-          <specular>0.8 0.8 0.8 1</specular>
+          <ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse><specular>0.8 0.8 0.8 1</specular>
         </material>
       </visual>
       <collision name="floor_c">
-        <geometry><box><size>2.0 0.6 0.02</size></box></geometry>
+        <geometry><box><size>1.0 0.6 0.02</size></box></geometry>
       </collision>
 
-      <!-- SOLID WHITE PEDESTAL (To ground) - Visual only to avoid ODE crashes -->
+      <!-- Pedestal (Adjusted to 1.0m Unit) -->
       <visual name="pedestal">
         <pose>0 0 -0.55 0 0 0</pose>
-        <geometry><box><size>1.98 0.5 1.1</size></box></geometry>
-        <material>
-          <ambient>0.95 0.95 0.95 1</ambient>
-          <diffuse>0.95 0.95 0.95 1</diffuse>
-        </material>
+        <geometry><box><size>0.98 0.5 1.1</size></box></geometry>
+        <material><ambient>0.95 0.95 0.95 1</ambient><diffuse>0.95 0.95 0.95 1</diffuse></material>
       </visual>
 
-      <!-- Right Silver Rail (Low Height) -->
-      <visual name="rail_right">
-        <pose>0 -0.31 0.05 0 0 0</pose>
-        <geometry><box><size>2.0 0.02 0.1</size></box></geometry>
-        <material>
-          <ambient>0.7 0.7 0.7 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>1 1 1 1</specular>
-        </material>
-      </visual>
-
-      <!-- Left Silver Rail (Low Height) -->
-      <visual name="rail_left">
-        <pose>0 0.31 0.05 0 0 0</pose>
-        <geometry><box><size>2.0 0.02 0.1</size></box></geometry>
-        <material>
-          <ambient>0.7 0.7 0.7 1</ambient>
-          <diffuse>0.7 0.7 0.7 1</diffuse>
-          <specular>1 1 1 1</specular>
-        </material>
-      </visual>
-
-      <!-- Blue Tech Accent Strip -->
+      <!-- Blue Tech Accent Strip (Center) -->
       <visual name="accent">
         <pose>0 0 0.011 0 0 0</pose>
-        <geometry><box><size>2.0 0.05 0.005</size></box></geometry>
-        <material>
-          <ambient>0 0.4 0.8 1</ambient>
-          <diffuse>0 0.4 0.8 1</diffuse>
-          <emissive>0 0.2 0.4 1</emissive>
-        </material>
+        <geometry><box><size>1.0 0.05 0.005</size></box></geometry>
+        <material><ambient>0 0.4 0.8 1</ambient><diffuse>0 0.4 0.8 1</diffuse><emissive>0 0.2 0.4 1</emissive></material>
       </visual>
     </link>
   </model>

@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="staggered_restaurant">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="ignition-gazebo-physics-system" name="ignition::gazebo::systems::Physics"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="ignition::gazebo::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-user-commands-system" name="ignition::gazebo::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <light type="directional" name="main_sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+          <material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Kitchen -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/kitchen_hub</uri><name>k</name><pose>-6 1 0 0 0 0</pose></include>
+
+    <!-- Loop 8m x 2m -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track_corner</uri><name>cnw</name><pose>-4 1 1.1 0 0 -1.5708</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>t1</name><pose>-2 1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>t2</name><pose>0 1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>t3</name><pose>2 1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track_corner</uri><name>cne</name><pose>4 1 1.1 0 0 3.14159</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>tr</name><pose>4 0 1.1 0 0 1.5708</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track_corner</uri><name>cse</name><pose>4 -1 1.1 0 0 1.5708</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>b1</name><pose>2 -1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>b2</name><pose>0 -1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>b3</name><pose>-2 -1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track_corner</uri><name>csw</name><pose>-4 -1 1.1 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/delivery_track</uri><name>tl</name><pose>-4 0 1.1 0 0 1.5708</pose></include>
+
+    <!-- Staggered Tables -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>tbl1</name><pose>-2 1.8 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri><name>chr1</name><pose>-2 2.5 0 0 0 3.14159</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q1</name><pose>-2 1.32 1.15 0 0 0</pose></include>
+
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>tbl2</name><pose>0 0.2 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri><name>chr2</name><pose>0 -0.5 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q2</name><pose>0 0.68 1.15 0 0 3.14159</pose></include>
+
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>tbl3</name><pose>2 1.8 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q3</name><pose>2 1.32 1.15 0 0 0</pose></include>
+
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri><name>tbl4</name><pose>2 -0.2 0 0 0 0</pose></include>
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker</uri><name>q4</name><pose>2 -0.68 1.15 0 0 0</pose></include>
+
+  </world>
+</sdf>
