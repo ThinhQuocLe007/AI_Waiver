@@ -47,6 +47,7 @@
       <pose>-5.5 0 0 0 0 0</pose>
     </include>
     <include>
+      <static>true</static>
       <uri>model://kitchen_monitor</uri>
       <name>orders_monitor</name>
       <pose>-4.5 0 0 0 0 3.14159</pose>

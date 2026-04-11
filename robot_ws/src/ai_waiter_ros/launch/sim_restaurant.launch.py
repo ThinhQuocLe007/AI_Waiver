@@ -10,24 +10,28 @@ def generate_launch_description():
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
 
     # 2. Tell Gazebo where to find your custom models (table, chair, track)
-    set_model_path = AppendEnvironmentVariable(
-        'IGN_GAZEBO_RESOURCE_PATH',
-        os.path.join(pkg_ai_waiter_ros, 'models')
-    )
+    # We add both the install path and the source path to be extra safe
+    model_path = os.path.join(pkg_ai_waiter_ros, 'models')
+    src_model_path = os.path.join(get_package_share_directory('ai_waiter_ros'), '..', '..', '..', 'src', 'ai_waiter_ros', 'models')
+    
+    # Ignition Gazebo (Fortress) uses this
+    set_ign_path = AppendEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH', model_path)
+    # Newer Gazebo (Garden/Ionic) uses this
+    set_gz_path = AppendEnvironmentVariable('GZ_SIM_RESOURCE_PATH', model_path)
 
     # 3. Path to your specific world file
     world_file = os.path.join(pkg_ai_waiter_ros, 'worlds', 'ai_waiver_restaurant.sdf')
 
-    # 4. Include the default Gazebo launch file, but pass it your custom world
+    # 4. Include the default Gazebo launch file
     start_gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')
         ),
-        # '-r' means start running the physics immediately
         launch_arguments={'gz_args': f'-r {world_file}'}.items()
     )
 
     return LaunchDescription([
-        set_model_path,
+        set_ign_path,
+        set_gz_path,
         start_gazebo
     ])
