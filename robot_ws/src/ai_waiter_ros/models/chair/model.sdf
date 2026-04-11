@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="chair">
+    <include>
+      <!-- Different Fuel URI for the chair! -->
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Chair</uri>
+    </include>
+  </model>
+</sdf>
