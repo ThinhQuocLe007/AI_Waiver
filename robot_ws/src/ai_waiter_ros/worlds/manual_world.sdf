@@ -10,15 +10,15 @@
     <light type="directional" name="sun"><pose>0 0 10 0 0 0</pose><diffuse>1 1 1 1</diffuse><specular>1 1 1 1</specular><direction>-0.5 0.1 -0.9</direction></light>
     <model name="ground"><static>true</static><link name="l"><visual name="v"><geometry><plane><normal>0 0 1</normal></plane></geometry><material><ambient>0.8 0.8 0.8 1</ambient><diffuse>0.8 0.8 0.8 1</diffuse></material></visual></link></model>
 
-    <!-- KITCHEN (Bottom) -->
-    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/kitchen_hub</uri><name>k</name><pose>0 -4.6 1.0 0 0 0</pose></include>
+    <!-- KITCHEN (Bottom) - Lowered to Z=0 for counter alignment -->
+    <include><uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/kitchen_hub</uri><name>k</name><pose>0 -4.6 0 0 0 0</pose></include>
 
-    <!-- T-JUNCTION TRACKS (Geometry Fix) -->
-    <model name="track_stem"><static>true</static><pose>0 -2.45 1.1 0 0 0</pose>
+    <!-- T-JUNCTION TRACKS (Geometry Fix: Starts at counter edge y=-4.0) -->
+    <model name="track_stem"><static>true</static><pose>0 -2.15 1.1 0 0 0</pose>
       <link name="l">
-        <visual name="v"><geometry><box><size>0.6 4.3 0.02</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
-        <visual name="ped"><pose>0 0 -0.55 0 0 0</pose><geometry><box><size>0.5 4.3 1.1</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
-        <visual name="a"><pose>0 0 0.01 0 0 0</pose><geometry><box><size>0.05 4.3 0.005</size></box></geometry><material><ambient>0 0.5 1 1</ambient><diffuse>0 0.5 1 1</diffuse><emissive>0 0.2 1 1</emissive></material></visual>
+        <visual name="v"><geometry><box><size>0.6 3.7 0.02</size></box></geometry><material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <visual name="ped"><pose>0 0 -0.55 0 0 0</pose><geometry><box><size>0.5 3.7 1.1</size></box></geometry><material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material></visual>
+        <visual name="a"><pose>0 0 0.01 0 0 0</pose><geometry><box><size>0.05 3.7 0.005</size></box></geometry><material><ambient>0 0.5 1 1</ambient><diffuse>0 0.5 1 1</diffuse><emissive>0 0.2 1 1</emissive></material></visual>
       </link>
     </model>
     <model name="track_crossbar"><static>true</static><pose>0 0 1.1 0 0 0</pose>
@@ -29,10 +29,9 @@
       </link>
     </model>
 
-    <!-- NEON ORANGE BOUNDARIES (Refined Split) -->
-    <!-- Stem Sides -->
-    <model name="sw_l"><static>true</static><pose>-0.3 -2.45 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 4.3 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
-    <model name="sw_r"><static>true</static><pose>0.3 -2.45 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 4.3 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <!-- NEON ORANGE BOUNDARIES -->
+    <model name="sw_l"><static>true</static><pose>-0.3 -2.15 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 3.7 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
+    <model name="sw_r"><static>true</static><pose>0.3 -2.15 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>0.02 3.7 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
 
     <!-- Crossbar Inner (Bottom Side y=-0.3) -->
     <model name="bw_inner_l"><static>true</static><pose>-3.0 -0.3 1.25 0 0 0</pose><link name="l"><visual name="v"><geometry><box><size>2.0 0.02 0.3</size></box></geometry><material><ambient>0.8 0.4 0 1</ambient><diffuse>1 0.5 0 1</diffuse></material></visual></link></model>
