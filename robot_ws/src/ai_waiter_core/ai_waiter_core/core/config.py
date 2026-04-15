@@ -1,31 +1,46 @@
 import os
 from pathlib import Path
-from dotenv import load_dotenv
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field, DirectoryPath
 
-# Load environment variables from .env file
-load_dotenv()
-
-class Settings:
-    # --- Project Root ---
-    PROJECT_ROOT = Path(__file__).parent.parent.parent.parent.parent.parent.resolve()
-    DATA_DIR = PROJECT_ROOT / "data"
-
+class Settings(BaseSettings):
+    # --- Project Root Calculation ---
+    PROJECT_ROOT: Path = Path(__file__).parent.parent.parent.parent.parent.parent.resolve()
+    
     # --- LLM Settings ---
-    MODEL_NAME = os.getenv("MODEL_NAME", "qwen2.5:3b")
-    HF_TOKEN = os.getenv("HF_TOKEN", "")
-    DEVICE = os.getenv("DEVICE", "cuda")
+    MODEL_NAME: str = Field(default="qwen2.5:3b", env="MODEL_NAME")
+    HF_TOKEN: str = Field(default="", env="HF_TOKEN")
+    DEVICE: str = Field(default="cuda", env="DEVICE")
+
 
     # --- Data Paths ---
-    MENU_FILE = DATA_DIR / "raw" / "menu.json"
-    INFO_FILE = DATA_DIR / "raw" / "restaurant_info.txt"
-    
-    VECTOR_DB_PATH = DATA_DIR / "vector_db" / "faiss_index"
-    BM25_PATH = DATA_DIR / "vector_db" / "bm25.pkl"
-    ORDER_DB_PATH = DATA_DIR / "sqlite" / "orders.db"
+    data_dir: Path = Field(default_factory=lambda: Path(__file__).parent.parent.parent.parent.parent.parent.resolve() / "data")    @property
+    def VECTOR_DB_PATH(self) -> Path:
+        return self.data_dir / "vector_db" / "faiss_index"
+
+    @property
+    def BM25_PATH(self) -> Path:
+        return self.data_dir / "vector_db" / "bm25.pkl"
+
+    @property
+    def ORDER_DB_PATH(self) -> Path:
+        return self.data_dir / "sqlite" / "orders.db"
+        
+    @property
+    def CHECKPOINTS_DB_PATH(self) -> Path:
+        return self.data_dir / "sqlite" / "checkpoints.db"
+
 
     # --- Server Settings ---
-    HOST = os.getenv("HOST", "0.0.0.0")
-    PORT = int(os.getenv("PORT", 8000))
+    host: str = Field(default="0.0.0.0", env="HOST")
+    port: int = Field(default=8000, env="PORT", ge=1, le=65535)
 
-# Create a singleton instance
+    # --- Config for Environment Loading ---
+    model_config = SettingsConfigDict(
+        env_file=".env", 
+        env_file_encoding='utf-8',
+        extra="ignore" 
+    )
+
+# Create the singleton instance
 settings = Settings()

@@ -35,14 +35,14 @@ class RetrieverManager:
         """
         all_documents = []
         
-        # 1. Loop through all files in the folder
+        # Loop through all the files in folder 
         for filename in os.listdir(directory_path):
             file_path = os.path.join(directory_path, filename)
             
-            # 2. Skip folders, only process files
+            # Process the files onnly 
             if os.path.isfile(file_path):
-                # 3. Use your existing load() method to pick the right parser
-                docs = self.load(file_path)
+                # Use the document loader to parser the file
+                docs = self.loader.load(file_path)
                 all_documents.extend(docs)
                 
         logger.info(f"Scaled Loading: Found {len(all_documents)} docs in {directory_path}")
@@ -62,7 +62,7 @@ class RetrieverManager:
 
         for path in data_paths:
             if os.path.isdir(path):
-                self._documents.extend(self.loader.load_directory(path))
+                self._documents.extend(self.load_directory(path))
             elif os.path.isfile(path):
                 self._documents.extend(self.loader.load(path))
         

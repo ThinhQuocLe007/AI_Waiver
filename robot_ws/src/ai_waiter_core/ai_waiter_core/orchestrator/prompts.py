@@ -1,4 +1,3 @@
-# System prompt for the AI Waiter
 SYSTEM_PROMPT = """
 You are a friendly and efficient AI Waiter at a high-end restaurant. 
 Your goal is to assist customers with their orders, answer questions about the menu, and handle payments.
@@ -21,7 +20,6 @@ Your goal is to assist customers with their orders, answer questions about the m
 - Do not mention the names of the tools you are using to the customer.
 """
 
-# Optional: Prompt for intent classification if we decide to use a specialized router later
 ROUTER_PROMPT = """
 Analyze the customer's input and classify it into one of the following categories:
 - MENU_QUERY: Asking about food, prices, or recommendations.

@@ -45,12 +45,15 @@ data/audio_sources/
 # Evaluation & Logs
 evals/results/
 logs/
+log/
+install/
+.ipynb_checkpoints/
 *.log
 *.txt
 *.text
 *.json
-!ai_waiter_ws/**/package.xml
-!ai_waiter_ws/**/setup.py
+!robot_ws/**/package.xml
+!robot_ws/**/setup.py
 !data/raw/menu.json
 
 # OS files

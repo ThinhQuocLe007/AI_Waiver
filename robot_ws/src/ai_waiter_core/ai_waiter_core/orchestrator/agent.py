@@ -5,6 +5,7 @@ from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
 
 from ai_waiter_core.tools import CORE_TOOLS
+from ai_waiter_core.core.config import settings
 from .prompts import SYSTEM_PROMPT
 from .memory import get_checkpointer
 
@@ -20,7 +21,7 @@ class AgentState(TypedDict):
 
 # 2. Setup the LLM and Bind Tools
 # We use llama3.1 as the brain of our agent.
-llm = ChatOllama(model="llama3.1", temperature=0.1)
+llm = ChatOllama(model=settings.MODEL_NAME, temperature=0.1)
 llm_with_tools = llm.bind_tools(CORE_TOOLS)
 
 # 3. Define the Agent Logic

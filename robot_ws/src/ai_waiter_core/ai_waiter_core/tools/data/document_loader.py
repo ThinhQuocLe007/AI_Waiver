@@ -46,7 +46,7 @@ class DocumentLoader:
         with open(file_path, 'r', encoding='utf-8') as f: 
             data = json.load(f)
 
-        documents = []
+        docs = []
         for item in data: 
             # Create a metadata dictionary
             metadata = {
@@ -99,7 +99,7 @@ class DocumentLoader:
 
         # Split content by ## section
         sections = content.split('##')
-        docs = [] 
+        documents = [] 
         for section in sections: 
             if not section.strip(): 
                 continue

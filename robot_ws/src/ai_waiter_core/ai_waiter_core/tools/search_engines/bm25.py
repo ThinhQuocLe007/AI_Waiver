@@ -25,7 +25,16 @@ class BM25Index(SearchIndex):
         """
         try:
             self.documents = documents
-            self.tokenized_docs = [doc.page_content.lower().split() for doc in documents]
+            self.tokenized_docs = []
+            for doc in documents:
+                # Title-Only BM25 search strategy for precise dish name lookups
+                title = doc.metadata.get("name") or doc.metadata.get("title")
+                
+                if title:
+                    self.tokenized_docs.append(str(title).lower().split())
+                else:
+                    self.tokenized_docs.append(doc.page_content.lower().split())
+                    
             self.bm25 = BM25Okapi(self.tokenized_docs)
             self.save()
             logger.info(f'[INFO] BM25 index built and saved to {self.db_path}')

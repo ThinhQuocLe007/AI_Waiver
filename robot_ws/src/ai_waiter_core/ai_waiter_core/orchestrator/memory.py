@@ -1,11 +1,19 @@
-from langgraph.checkpoint.memory import MemorySaver
+from langgraph.checkpoint.sqlite import SqliteSaver
+from ai_waiter_core.core.config import settings
+import sqlite3
+import os 
 
 def get_checkpointer():
     """
-    Returns a LangGraph MemorySaver for in-memory persistence.
-    We can swap this for a SQLite-based checkpointer later (e.g., SqliteSaver).
+    Return a SqliteSaver that persists conversation history to a SQLite database.
     """
-    return MemorySaver()
+    db_path = str(settings.CHECKPOINTS_DB_PATH)
+    
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+
+    conn = sqlite3.connect(db_path, check_same_thread= False)
+    return SqliteSaver(conn)
 
 def create_config(table_id: str):
     """
@@ -14,5 +22,3 @@ def create_config(table_id: str):
     """
     return {"configurable": {"thread_id": table_id}}
 
-# You can add more complex memory-merging logic here if needed,
-# such as summarizing long conversations to save context window.

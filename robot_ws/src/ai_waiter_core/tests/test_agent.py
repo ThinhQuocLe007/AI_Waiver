@@ -1,10 +1,4 @@
 import uuid
-import sys
-import os
-
-# 1. Add the project source to the path so we can import our package
-sys.path.append(os.path.abspath("robot_ws/src/ai_waiter_core"))
-
 from ai_waiter_core.orchestrator.agent import get_agent_app
 from ai_waiter_core.orchestrator.memory import create_config
 
