@@ -51,7 +51,7 @@
       <self_collide>false</self_collide>
     </model>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/kitchen_hub</uri>
+      <uri>model://kitchen_hub</uri>
       <name>k</name>
       <pose>0 -4.6 0 0 -0 0</pose>
     </include>
@@ -586,92 +586,92 @@
       <self_collide>false</self_collide>
     </model>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri>
+      <uri>model://table</uri>
       <name>t1</name>
       <pose>-3.3 1.1 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri>
+      <uri>model://chair</uri>
       <name>t1c</name>
       <pose>-3.3 1.5 0 0 0 -1.57</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker_1</uri>
+      <uri>model://qr_marker_1</uri>
       <name>q1</name>
       <pose>-3.29282 -0.240871 1.25 0 -0 0.335309</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri>
+      <uri>model://table</uri>
       <name>t2</name>
       <pose>-2.3 -1.1 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri>
+      <uri>model://chair</uri>
       <name>t2c</name>
       <pose>-2.3 -1.5 0 0 -0 1.57</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker_2</uri>
+      <uri>model://qr_marker_2</uri>
       <name>q2</name>
       <pose>-2.3 0.272367 1.25 0 -0 3.14159</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri>
+      <uri>model://table</uri>
       <name>t3</name>
       <pose>-1.3 1.1 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri>
+      <uri>model://chair</uri>
       <name>t3c</name>
       <pose>-1.3 1.5 0 0 0 -1.57</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker_3</uri>
+      <uri>model://qr_marker_3</uri>
       <name>q3</name>
       <pose>-1.3 -0.268975 1.25 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri>
+      <uri>model://table</uri>
       <name>t4</name>
       <pose>1.3 1.1 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri>
+      <uri>model://chair</uri>
       <name>t4c</name>
       <pose>1.3 1.5 0 0 0 -1.57</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker_4</uri>
+      <uri>model://qr_marker_4</uri>
       <name>q4</name>
       <pose>1.3 -0.258756 1.25 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri>
+      <uri>model://table</uri>
       <name>t5</name>
       <pose>2.3 -1.1 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri>
+      <uri>model://chair</uri>
       <name>t5c</name>
       <pose>2.3 -1.5 0 0 -0 1.57</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker_5</uri>
+      <uri>model://qr_marker_5</uri>
       <name>q5</name>
       <pose>2.3 0.262595 1.25 0 -0 3.14159</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/table</uri>
+      <uri>model://table</uri>
       <name>t6</name>
       <pose>3.3 1.1 0 0 -0 0</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/chair</uri>
+      <uri>model://chair</uri>
       <name>t6c</name>
       <pose>3.3 1.5 0 0 0 -1.57</pose>
     </include>
     <include>
-      <uri>file:///home/lequocthinh/Desktop/pythonCode/AI_Waiver/robot_ws/src/ai_waiter_ros/models/qr_marker_6</uri>
+      <uri>model://qr_marker_6</uri>
       <name>q6</name>
       <pose>3.3 -0.238684 1.25 0 -0 0</pose>
     </include>

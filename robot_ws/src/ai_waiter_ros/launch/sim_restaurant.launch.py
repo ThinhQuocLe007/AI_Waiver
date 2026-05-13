@@ -16,15 +16,14 @@ def generate_launch_description():
     
     src_worlds_path = os.path.join(ws_root, 'src', 'ai_waiter_ros', 'worlds')
 
-    # 2. Khai báo tham số world_file (Mặc định là manual_world.sdf)
+    # 2. Khai báo tham số world_file (Mặc định là restaurant_v5.sdf)
     world_file_arg = DeclareLaunchArgument(
         'world_file',
-        default_value='manual_world.sdf',
+        default_value='restaurant_v5.sdf',
         description='Name of the world file to load from src/ai_waiter_ros/worlds/'
     )
 
     # 3. Tạo đường dẫn tuyệt đối đến file world được chọn
-    # Nếu Gazebo không tìm thấy, nó sẽ báo lỗi thay vì load sảnh trống
     world_path = PathJoinSubstitution([
         src_worlds_path,
         LaunchConfiguration('world_file')

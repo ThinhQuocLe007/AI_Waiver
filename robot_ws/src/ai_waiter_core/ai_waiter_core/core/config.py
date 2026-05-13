@@ -3,9 +3,11 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field, DirectoryPath
 
+# --- Project Root Calculation ---
+ROOT = Path(__file__).parent.parent.parent.parent.parent.parent.resolve()
+
 class Settings(BaseSettings):
-    # --- Project Root Calculation ---
-    PROJECT_ROOT: Path = Path(__file__).parent.parent.parent.parent.parent.parent.resolve()
+    PROJECT_ROOT: Path = ROOT
     
     # --- LLM Settings ---
     MODEL_NAME: str = Field(default="qwen2.5:3b", env="MODEL_NAME")
@@ -14,7 +16,9 @@ class Settings(BaseSettings):
 
 
     # --- Data Paths ---
-    data_dir: Path = Field(default_factory=lambda: Path(__file__).parent.parent.parent.parent.parent.parent.resolve() / "data")    @property
+    data_dir: Path = Field(default=ROOT / "data")
+    
+    @property
     def VECTOR_DB_PATH(self) -> Path:
         return self.data_dir / "vector_db" / "faiss_index"
 

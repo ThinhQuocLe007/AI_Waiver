@@ -81,7 +81,7 @@
   },
   {
     "name": "Cà Tím Tay Cầm (Chay)",
-    "description": "Cà tím và đậu hũ non om trong tay cầm (tộ đất) với sốt tương nấm. Giữ nóng lâu, hương vị đậm đà, cà tím mềm tan, rất hợp ăn với cơm.",
+    "description": "Cà tím và đậu hũ non om trong tay cầm (tộ đất) with sốt tương nấm. Giữ nóng lâu, hương vị đậm đà, cà tím mềm tan, rất hợp ăn với cơm.",
     "price": "70000",
     "diet_type": "chay",
     "category": "Món Chính Chay",
@@ -91,7 +91,7 @@
   },
   {
     "name": "Bò Lúc Lắc Khoai Tây Chiên",
-    "description": "Thịt bò thăn cắt khối vuông (lúc lắc), xào nhanh trên lửa lớn với ớt chuông, hành tây và bơ. Thịt mềm, mọng nước, ăn kèm khoai tây chiên giòn.",
+    "description": "Thịt bò thăn cắt khối vuông (lúc lắc), xào nhanh trên lửa lớn with ớt chuông, hành tây và bơ. Thịt mềm, mọng nước, ăn kèm khoai tây chiên giòn.",
     "price": "145000",
     "diet_type": "mặn",
     "category": "Món Chính Mặn",
@@ -131,7 +131,7 @@
   },
   {
     "name": "Cơm Chiên Trái Thơm",
-    "description": "Cơm chiên tơi hạt với hải sản, hạt lựu rau củ và dứa (thơm) tươi, được trình bày đẹp mắt trong nửa quả thơm. Vị chua ngọt hài hòa.",
+    "description": "Cơm chiên tơi hạt with hải sản, hạt lựu rau củ và dứa (thơm) tươi, được trình bày đẹp mắt trong nửa quả thơm. Vị chua ngọt hài hòa.",
     "price": "105000",
     "diet_type": "mặn",
     "category": "Cơm & Mì",
@@ -141,7 +141,7 @@
   },
   {
     "name": "Rau Muống Xào Tỏi",
-    "description": "Rau muống non xanh mướt, xào trên lửa lớn với thật nhiều tỏi đập dập. Rau giữ được độ giòn, xanh, dậy mùi thơm nức mũi.",
+    "description": "Rau muống non xanh mướt, xào trên lửa lớn with thật nhiều tỏi đập dập. Rau giữ được độ giòn, xanh, dậy mùi thơm nức mũi.",
     "price": "45000",
     "diet_type": "chay",
     "category": "Món Rau",
@@ -161,7 +161,7 @@
   },
   {
     "name": "Canh Chua Cá Lóc Miền Tây",
-    "description": "Tô canh chua đúng điệu miền Tây với cá lóc đồng, bạc hà, đậu bắp, giá và me chua. Vị chua thanh, ngọt hậu, chấm cá với nước mắm ớt.",
+    "description": "Tô canh chua đúng điệu miền Tây with cá lóc đồng, bạc hà, đậu bắp, giá và me chua. Vị chua thanh, ngọt hậu, chấm cá with nước mắm ớt.",
     "price": "85000",
     "diet_type": "mặn",
     "category": "Canh & Sup",
@@ -211,7 +211,7 @@
   },
   {
     "name": "Cà Phê Sữa Đá Sài Gòn",
-    "description": "Cà phê Robusta rang xay đậm đà, pha phin truyền thống, kết hợp với sữa đặc Ngôi Sao ngọt béo và nhiều đá viên mát lạnh.",
+    "description": "Cà phê Robusta rang xay đậm đà, pha phin truyền thống, kết hợp with sữa đặc Ngôi Sao ngọt béo và nhiều đá viên mát lạnh.",
     "price": "29000",
     "diet_type": "chay",
     "category": "Đồ Uống",
@@ -221,7 +221,7 @@
   },
   {
     "name": "Bạc Xỉu Đá",
-    "description": "Thức uống đặc trưng Sài Gòn với nhiều sữa đặc và sữa tươi, chỉ điểm thêm một chút cà phê để tạo hương thơm. Ngọt béo, dễ uống hơn cà phê sữa.",
+    "description": "Thức uống đặc trưng Sài Gòn with nhiều sữa đặc và sữa tươi, chỉ điểm thêm một chút cà phê để tạo hương thơm. Ngọt béo, dễ uống hơn cà phê sữa.",
     "price": "32000",
     "diet_type": "chay",
     "category": "Đồ Uống",
@@ -241,7 +241,7 @@
   },
   {
     "name": "Sinh Tố Bơ Dừa",
-    "description": "Bơ sáp dẻo mịn xay nhuyễn cùng cốt dừa béo ngậy và sữa đặc. Một ly sinh tố giàu năng lượng và tốt cho sức khỏe.",
+    "description": "Bơ sáp dẻo mịn xay nhuyễn cùng cốt dừa béo ngậy and sữa đặc. Một ly sinh tố giàu năng lượng và tốt cho sức khỏe.",
     "price": "55000",
     "diet_type": "chay",
     "category": "Đồ Uống",
@@ -258,5 +258,245 @@
     "ingredients": "Dưa hấu tươi, một chút muối hồng (tùy chọn)",
     "taste_profile": "Ngọt mát, tươi mới, thanh lọc cơ thể",
     "tags": "đồ uống, nước ép, healthy, detox, không đường"
+  },
+  {
+    "name": "Gỏi Ngó Sen Tôm Thịt",
+    "description": "Ngó sen giòn trắng, trộn cùng tôm tươi, thịt ba chỉ, rau răm, lạc rang. Thấm đẫm nước mắm chua ngọt đặc trưng.",
+    "price": "95000",
+    "diet_type": "mặn",
+    "category": "Món Khai Vị",
+    "ingredients": "Ngó sen, tôm, thịt ba chỉ, đậu phộng, nước mắm, rau răm",
+    "taste_profile": "Giòn, chua ngọt, đậm đà",
+    "tags": "món mặn, khai vị, hải sản, gỏi, truyền thống"
+  },
+  {
+    "name": "Nem Nướng Nha Trang",
+    "description": "Nem nướng thơm lừng từ thịt heo xay, quết dẻo, nướng trên than hồng. Ăn kèm bánh tráng chiên giòn, rau sống và nước chấm tôm thịt bí truyền.",
+    "price": "85000",
+    "diet_type": "mặn",
+    "category": "Món Đặc Sản",
+    "ingredients": "Thịt heo, nước sốt tôm thịt, bánh tráng chiên, rau sống, đồ chua",
+    "taste_profile": "Thơm nướng, mặn ngọt đặc trưng, nhiều rau",
+    "tags": "món mặn, đặc sản, nem nướng, cuốn bánh tráng"
+  },
+  {
+    "name": "Bánh Xèo Miền Tây",
+    "description": "Bánh xèo vỏ mỏng giòn tan, nhân tôm, thịt, giá đỗ đầy đặn. Ăn kèm các loại rau rừng và nước mắm chua cay.",
+    "price": "75000",
+    "diet_type": "mặn",
+    "category": "Món Đặc Sản",
+    "ingredients": "Bột bánh xèo, tôm, thịt heo, giá đỗ, rau rừng, nước mắm",
+    "taste_profile": "Giòn rụm, béo cốt dừa, thơm mùi nghệ",
+    "tags": "món mặn, đặc sản, bánh xèo, miền Tây, giòn"
+  },
+  {
+    "name": "Bánh Khọt Vũng Tàu",
+    "description": "Những chiếc bánh nhỏ xinh, vàng ruộm, nhân tôm tươi và mỡ hành thơm nức. Ăn kèm rau sống và nước mắm sền sệt.",
+    "price": "65000",
+    "diet_type": "mặn",
+    "category": "Món Đặc Sản",
+    "ingredients": "Bột gạo, tôm tươi, mỡ hành, tôm khô băm, rau sống",
+    "taste_profile": "Giòn vỏ, mềm trong, thơm mỡ hành",
+    "tags": "món mặn, đặc sản, bánh khọt, Vũng Tàu, ăn chơi"
+  },
+  {
+    "name": "Bún Bò Huế (Tô Đặc Biệt)",
+    "description": "Sợi bún to đặc trưng, nước lèo đậm đà mùi mắm ruốc Huế and sả. Đầy đủ chân giò, nạm bò, chả cua and huyết.",
+    "price": "85000",
+    "diet_type": "mặn",
+    "category": "Món Nước",
+    "ingredients": "Bún sợi to, nạm bò, chân giò heo, chả cua, mắm ruốc, sả, ớt màu",
+    "taste_profile": "Cay nồng, đậm đà mắm ruốc, thơm mùi sả",
+    "tags": "món mặn, món nước, đặc sản, Huế, cay, bún bò"
+  },
+  {
+    "name": "Mì Quảng Tôm Thịt",
+    "description": "Sợi mì Quảng vàng dai, nước dùng sệt đậm đà. Ăn kèm tôm, thịt heo, trứng cút, bánh đa giòn và lạc rang.",
+    "price": "65000",
+    "diet_type": "mặn",
+    "category": "Món Nước",
+    "ingredients": "Mì Quảng, tôm, thịt heo, trứng cút, bánh đa, đậu phộng, rau sống",
+    "taste_profile": "Đậm đà, thơm mùi củ nén, bùi vị lạc",
+    "tags": "món mặn, đặc sản, miền Trung, mì quảng"
+  },
+  {
+    "name": "Cơm Tấm Sườn Bì Chả",
+    "description": "Gạo tấm thơm dẻo, sườn nướng mật ong vàng óng, bì heo thơm thính, chả trứng béo ngậy. Ăn kèm đồ chua và nước mắm kẹo.",
+    "price": "65000",
+    "diet_type": "mặn",
+    "category": "Cơm & Mì",
+    "ingredients": "Gạo tấm, sườn heo, bì heo, chả trứng, dưa leo, đồ chua",
+    "taste_profile": "Ngọt mặn hài hòa, thơm nướng, béo chả",
+    "tags": "món mặn, cơm tấm, sài gòn, ăn trưa, phổ biến"
+  },
+  {
+    "name": "Bò Kho Bánh Mì",
+    "description": "Thịt nạm bò và gân bò hầm mềm trong nước sốt đậm màu, dậy mùi hoa hồi, thảo quả. Ăn kèm bánh mì giòn nóng.",
+    "price": "75000",
+    "diet_type": "mặn",
+    "category": "Món Chính Mặn",
+    "ingredients": "Thịt bò, cà rốt, bánh mì, hoa hồi, sả, quế",
+    "taste_profile": "Đậm đà, thơm mùi thảo mộc, thịt mềm",
+    "tags": "món mặn, bò kho, bánh mì, món nóng, truyền thống"
+  },
+  {
+    "name": "Gà Bó Xôi Chiên Giòn",
+    "description": "Con gà ta nướng thơm được bọc trong lớp xôi nếp cốt dừa, chiên vàng rụm. Khi cắt ra, lớp xôi giòn tan bên ngoài, mềm dẻo bên trong.",
+    "price": "285000",
+    "diet_type": "mặn",
+    "category": "Món Chính Mặn",
+    "ingredients": "Gà ta, gạo nếp, nước cốt dừa, gia vị tẩm ướp",
+    "taste_profile": "Giòn xôi, dẻo nếp, ngọt thịt gà",
+    "tags": "món mặn, gà bó xôi, món chiên, chia sẻ, món tiệc"
+  },
+  {
+    "name": "Tôm Sú Chiên Xù",
+    "description": "Tôm sú tươi to, lột vỏ để đuôi, tẩm bột chiên xù giòn tan. Chấm kèm sốt Mayonnaise tương tương cà.",
+    "price": "155000",
+    "diet_type": "mặn",
+    "category": "Món Hải Sản",
+    "ingredients": "Tôm sú, bột chiên xù, trứng gà, sốt mayonnaise",
+    "taste_profile": "Giòn rụm, ngọt thịt tôm, béo sốt",
+    "tags": "món mặn, hải sản, tôm, món chiên, trẻ em thích"
+  },
+  {
+    "name": "Cá Diêu Hồng Chiên Xù",
+    "description": "Cá diêu hồng nguyên con chiên vàng, vảy cá giòn rụm. Cuốn kèm bánh tráng, bún and các loại rau sống.",
+    "price": "165000",
+    "diet_type": "mặn",
+    "category": "Món Hải Sản",
+    "ingredients": "Cá diêu hồng, bánh tráng, bún, rau sống, nước mắm gừng",
+    "taste_profile": "Giòn vỏ, thịt trắng ngọt, thơm mùi gừng",
+    "tags": "món mặn, hải sản, cá, cuốn bánh tráng, chia sẻ"
+  },
+  {
+    "name": "Canh Khổ Qua Rừng (Chay)",
+    "description": "Khổ qua rừng đắng thanh, nhồi nhân đậu hũ và nấm mèo. Nước dùng ngọt từ rau củ, giải nhiệt rất tốt.",
+    "price": "65000",
+    "diet_type": "chay",
+    "category": "Món Canh Chay",
+    "ingredients": "Khổ qua rừng, đậu hũ, nấm mèo, bún tàu",
+    "taste_profile": "Đắng thanh, ngọt hậu, thanh mát",
+    "tags": "món chay, canh, khổ qua, giải nhiệt, healthy"
+  },
+  {
+    "name": "Đậu Hũ Lướt Ván",
+    "description": "Đậu hũ non tẩm bột chiên sơ qua dầu nóng, giữ được độ mềm mướt bên trong và lớp vỏ mỏng dai bên ngoài. Ăn kèm chà bông (tùy chọn) and mắm tôm.",
+    "price": "55000",
+    "diet_type": "chay",
+    "category": "Món Khai Vị Chay",
+    "ingredients": "Đậu hũ non, bột năng, hành lá, mắm tôm (hoặc nước tương)",
+    "taste_profile": "Mềm mịn, béo, thơm mùi hành tỏi",
+    "tags": "món chay, đậu hũ, khai vị, bình dân"
+  },
+  {
+    "name": "Nấm Mối Nướng Giấy Bạc (Chay)",
+    "description": "Nấm mối (hoặc nấm đùi gà) tẩm gia vị, hành baro, nướng trong giấy bạc để giữ trọn vị ngọt tự nhiên của nấm.",
+    "price": "95000",
+    "diet_type": "chay",
+    "category": "Món Chính Chay",
+    "ingredients": "Nấm mối, hành baro, tiêu, dầu mè, giấy bạc",
+    "taste_profile": "Ngọt tự nhiên, thơm nướng, đậm đà",
+    "tags": "món chay, nấm, món nướng, bổ dưỡng"
+  },
+  {
+    "name": "Rau Củ Thập Cẩm Kho Quẹt",
+    "description": "Bông cải, đậu bắp, cà rốt, khổ qua luộc vừa chín tới, xanh mướt. Chấm cùng tộ kho quẹt đậm đà, có tóp mỡ (chay) and tiêu xanh.",
+    "price": "75000",
+    "diet_type": "chay",
+    "category": "Món Rau",
+    "ingredients": "Rau củ theo mùa, sườn non chay (làm tóp mỡ), nước tương, tiêu xanh",
+    "taste_profile": "Đậm đà, mặn ngọt, rau củ thanh ngọt",
+    "tags": "món chay, rau củ, kho quẹt, tốn cơm, healthy"
+  },
+  {
+    "name": "Miến Xào Cua Tay Cầm",
+    "description": "Thịt cua biển tươi rối, xào cùng miến dong dai ngon, mộc nhĩ, nấm hương. Trình bày trong thố đất nóng hổi.",
+    "price": "185000",
+    "diet_type": "mặn",
+    "category": "Cơm & Mì",
+    "ingredients": "Miến dong, thịt cua biển, nấm mèo, hành tây, ngò rí",
+    "taste_profile": "Hương vị cua biển đậm đà, miến dai, thơm lừng",
+    "tags": "món mặn, hải sản, cua, miến xào, món cao cấp"
+  },
+  {
+    "name": "Súp Cua Tóc Tiên",
+    "description": "Súp sệt với thịt cua, trứng cút, nấm đông cô and tóc tiên. Vị thanh nhẹ, bổ dưỡng, rất hợp cho người già and trẻ nhỏ.",
+    "price": "45000",
+    "diet_type": "mặn",
+    "category": "Canh & Sup",
+    "ingredients": "Thịt cua, tóc tiên, trứng cút, nấm đông cô, bột năng",
+    "taste_profile": "Thanh ngọt, bổ dưỡng, dễ ăn",
+    "tags": "món mặn, súp, hải sản, bổ dưỡng, khai vị"
+  },
+  {
+    "name": "Súp Bắp Hải Sản",
+    "description": "Hạt bắp mỹ ngọt lịm nấu cùng tôm, mực xắt hạt lựu. Nước súp trong, thanh và rất giàu dinh dưỡng.",
+    "price": "40000",
+    "diet_type": "mặn",
+    "category": "Canh & Sup",
+    "ingredients": "Bắp Mỹ, tôm, mực, trứng gà, bột năng",
+    "taste_profile": "Ngọt tự nhiên từ bắp, tươi vị hải sản",
+    "tags": "món mặn, súp, bắp, hải sản, trẻ em thích"
+  },
+  {
+    "name": "Chè Thịt Heo Quay (Huế)",
+    "description": "Sự kết hợp độc đáo giữa vị ngọt của nước đường and vị mặn béo của thịt heo quay bên trong viên bột lọc dai dai.",
+    "price": "35000",
+    "diet_type": "mặn",
+    "category": "Tráng Miệng",
+    "ingredients": "Bột lọc, thịt heo quay, đường phèn, gừng",
+    "taste_profile": "Mặn ngọt lạ miệng, dai giòn",
+    "tags": "tráng miệng, đặc sản, Huế, chè heo quay, lạ miệng"
+  },
+  {
+    "name": "Rau Câu Dừa Xiêm",
+    "description": "Lớp rau câu trắng béo ngậy cốt dừa and lớp rau câu trong ngọt thanh nước dừa xiêm. Món tráng miệng nhẹ nhàng.",
+    "price": "25000",
+    "diet_type": "chay",
+    "category": "Tráng Miệng",
+    "ingredients": "Nước dừa xiêm, cốt dừa, bột rau câu, đường",
+    "taste_profile": "Mát lạnh, ngọt thanh, béo ngậy",
+    "tags": "tráng miệng, dừa, giải nhiệt, nhẹ bụng"
+  },
+  {
+    "name": "Soda Chanh Muối",
+    "description": "Nước soda kết hợp with chanh muối lâu năm, giúp giải khát and hỗ trợ tiêu hóa sau bữa ăn thịnh soạn.",
+    "price": "35000",
+    "diet_type": "chay",
+    "category": "Đồ Uống",
+    "ingredients": "Chanh muối, soda, đường, đá viên",
+    "taste_profile": "Chua mặn, sảng khoái, giải khát",
+    "tags": "đồ uống, soda, giải nhiệt, tiêu hóa"
+  },
+  {
+    "name": "Trà Sen Vàng (Kem Cheese)",
+    "description": "Trà Ô-long sen vàng thanh mát, kết hợp hạt sen bùi bùi and lớp kem phô mai béo ngậy trên bề mặt.",
+    "price": "55000",
+    "diet_type": "chay",
+    "category": "Đồ Uống",
+    "ingredients": "Trà ô-long, hạt sen, kem cheese, thạch củ năng",
+    "taste_profile": "Thanh mát, bùi béo, thơm mùi trà",
+    "tags": "đồ uống, trà túi lọc, trà sen, béo ngậy, hot trend"
+  },
+  {
+    "name": "Nước Ép Cam Tươi nguyên chất",
+    "description": "Cam sành vắt nguyên chất, chứa nhiều Vitamin C, giúp tăng cường sức đề kháng.",
+    "price": "45000",
+    "diet_type": "chay",
+    "category": "Đồ Uống",
+    "ingredients": "Cam tươi, đường phèn (tùy chọn)",
+    "taste_profile": "Chua ngọt tự nhiên, nhiều tép cam",
+    "tags": "đồ uống, nước ép, Vitamin C, healthy"
+  },
+  {
+    "name": "Sinh Tố Xoài Cát Chu",
+    "description": "Xoài Cát Chu chín vàng thơm lừng xay cùng sữa tươi. Vị ngọt đậm đà, thơm nức đặc trưng của xoài miền Tây.",
+    "price": "50000",
+    "diet_type": "chay",
+    "category": "Đồ Uống",
+    "ingredients": "Xoài Cát Chu, sữa tươi, sữa đặc, đá xay",
+    "taste_profile": "Ngọt đậm, thơm lừng, mịn màng",
+    "tags": "đồ uống, sinh tố, xoài, đặc sản miền Tây"
   }
 ]
