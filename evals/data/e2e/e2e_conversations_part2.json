@@ -1,0 +1,321 @@
+{
+  "dataset": "e2e_conversations",
+  "version": "1.0",
+  "part": 2,
+  "description": "Phần 2: Kịch bản dài 8-10 turns — bao gồm duyệt menu, thay đổi đơn nhiều lần, từ chối xác nhận, và thanh toán.",
+  "total_scenarios": 5,
+  "scenarios": [
+    {
+      "id": "E2E-006",
+      "name": "user_refuses_then_reorders",
+      "description": "Agent tóm tắt đơn, khách từ chối, yêu cầu gọi món khác. Agent KHÔNG được gọi confirm_order khi khách từ chối.",
+      "table_id": "T_eval_6",
+      "difficulty": "hard",
+      "expected_outcome": "order_placed_after_rejection",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho mình 1 phần Mực Nướng Sa Tế",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Thôi không lấy Mực nữa, đổi thành Sườn Non Nướng Mật Ong đi",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_must_NOT_call": "confirm_order",
+            "tool_output_contains": "Sườn"
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Ok đặt thôi",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS",
+            "confirmed_items_must_contain": "Sườn",
+            "confirmed_items_must_NOT_contain": "Mực"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-007",
+      "name": "add_items_across_turns",
+      "description": "Khách gọi từng món riêng qua nhiều lượt, rồi xác nhận đơn chứa tất cả. Kiểm tra memory tích luỹ.",
+      "table_id": "T_eval_7",
+      "difficulty": "medium",
+      "expected_outcome": "order_placed",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho mình 1 tô Bún Bò Huế",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Thêm 2 ly Trà Đào Cam Sả nữa nhé",
+          "assert": {
+            "tool_called": "verify_and_prepare_order"
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Vậy là đủ rồi, xác nhận đặt đi",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-008",
+      "name": "order_then_request_payment",
+      "description": "Khách gọi món, xác nhận đặt, ăn xong yêu cầu thanh toán. Kiểm tra luồng ORDER → PAYMENT trong cùng session.",
+      "table_id": "T_eval_8",
+      "difficulty": "medium",
+      "expected_outcome": "payment_requested",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho mình 1 tô Phở Gà Ta Tràng An và 1 ly Nước Ép Dưa Hấu",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Xác nhận",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS"
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Ăn ngon quá. Cho mình hỏi có chương trình khuyến mãi gì không?",
+          "assert": {
+            "response_should_contain_one_of": ["giảm", "ưu đãi", "happy hour", "sinh nhật", "khuyến mãi"]
+          }
+        },
+        {
+          "turn": 4,
+          "role": "user",
+          "content": "Thôi tính tiền đi, mình thanh toán",
+          "assert": {
+            "tool_called": "request_payment",
+            "response_should_contain_one_of": ["QR", "thanh toán", "VNĐ"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-009",
+      "name": "full_long_conversation_browse_order_change_confirm",
+      "description": "Kịch bản dài 9 lượt: khách hỏi menu nhiều lần, gọi món, thêm ghi chú, thay đổi, hỏi lại về món, rồi xác nhận. Kiểm tra memory và routing qua nhiều lượt.",
+      "table_id": "T_eval_9",
+      "difficulty": "hard",
+      "expected_outcome": "order_placed",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Quán mình có những loại lẩu nào vậy?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["Lẩu Thái", "Lẩu Nấm Chay", "Tomyum"]
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Lẩu Thái Tomyum ăn được mấy người, giá bao nhiêu?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["345.000", "345000", "2-3", "hải sản"]
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Được, cho mình 1 set Lẩu Thái Tomyum Hải Sản. Thêm Gà Rang Muối Hồng Kông nữa nhé",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 4,
+          "role": "user",
+          "content": "Rau Muống Xào Tỏi giá bao nhiêu vậy bạn?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["45.000", "45000"]
+          }
+        },
+        {
+          "turn": 5,
+          "role": "user",
+          "content": "Thêm 1 Rau Muống Xào Tỏi vào đơn giùm mình",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 6,
+          "role": "user",
+          "content": "À cho mình hỏi Gà Rang Muối có cay không?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["sả", "muối", "cay nhẹ", "giòn"]
+          }
+        },
+        {
+          "turn": 7,
+          "role": "user",
+          "content": "Ok giữ nguyên đơn vậy. Tổng cộng bao nhiêu tiền nhỉ?",
+          "assert": {
+            "response_should_contain_one_of": ["505.000", "505000", "tổng", "đơn hàng"]
+          }
+        },
+        {
+          "turn": 8,
+          "role": "user",
+          "content": "Thôi bỏ Gà Rang Muối ra, lấy thêm 2 ly Sinh Tố Bơ Dừa thay vào",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_must_NOT_call": "confirm_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 9,
+          "role": "user",
+          "content": "Ok xác nhận đơn hàng đó nhé",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS",
+            "confirmed_items_must_contain": "Sinh Tố",
+            "confirmed_items_must_NOT_contain": "Gà Rang"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-010",
+      "name": "full_session_with_unknown_item_recovery",
+      "description": "Kịch bản 10 lượt: khách gọi món không có trong menu, agent gợi ý, khách chọn lại, thêm món, hỏi giảm giá, rồi xác nhận và thanh toán.",
+      "table_id": "T_eval_10",
+      "difficulty": "hard",
+      "expected_outcome": "payment_requested",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Xin chào bạn ơi",
+          "assert": {
+            "response_should_contain_one_of": ["xin chào", "chào", "phục vụ"]
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Quán có bán Pizza không?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["không có", "thực đơn", "món khác", "gợi ý"]
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Vậy cho mình xem món đặc sản có gì",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["Bánh Xèo", "Nem Nướng", "Bánh Khọt", "Mì Quảng"]
+          }
+        },
+        {
+          "turn": 4,
+          "role": "user",
+          "content": "Cho mình 2 phần Bánh Xèo Miền Tây",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 5,
+          "role": "user",
+          "content": "Thêm 1 tô Phở Bò Đặc Biệt và ghi chú ít hành nhé",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 6,
+          "role": "user",
+          "content": "Đồ uống có trà gì mát không?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["Trà Đào", "Trà Sen", "Soda Chanh"]
+          }
+        },
+        {
+          "turn": 7,
+          "role": "user",
+          "content": "Thêm 3 ly Trà Đào Cam Sả",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 8,
+          "role": "user",
+          "content": "Hôm nay có khuyến mãi gì không?",
+          "assert": {
+            "response_should_contain_one_of": ["Happy Hour", "giảm giá", "ưu đãi", "combo", "sinh nhật"]
+          }
+        },
+        {
+          "turn": 9,
+          "role": "user",
+          "content": "Ok đặt đơn đó đi bạn",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS"
+          }
+        },
+        {
+          "turn": 10,
+          "role": "user",
+          "content": "Ăn xong rồi, tính tiền giùm mình nha",
+          "assert": {
+            "tool_called": "request_payment",
+            "response_should_contain_one_of": ["QR", "VNĐ", "thanh toán"]
+          }
+        }
+      ]
+    }
+  ]
+}

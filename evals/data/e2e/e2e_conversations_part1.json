@@ -1,0 +1,188 @@
+{
+  "dataset": "e2e_conversations",
+  "version": "1.0",
+  "description": "Kịch bản hội thoại nhiều lượt (8-10 turns) với AI Waiter bằng tiếng Việt. Mỗi turn có assert kiểm tra tool được gọi và nội dung phản hồi.",
+  "total_scenarios": 5,
+  "scenarios": [
+    {
+      "id": "E2E-001",
+      "name": "happy_path_single_item",
+      "description": "Khách gọi 1 món rõ ràng, xác nhận, hoàn tất. Kiểm tra luồng verify → confirm cơ bản.",
+      "table_id": "T_eval_1",
+      "difficulty": "easy",
+      "expected_outcome": "order_placed",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho mình 1 tô Phở Bò Đặc Biệt",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART",
+            "response_should_contain_one_of": ["75.000", "75000", "xác nhận", "đặt"]
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Đúng rồi, xác nhận đặt luôn",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS",
+            "response_should_contain_one_of": ["đặt thành công", "đơn hàng"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-002",
+      "name": "happy_path_multiple_items_with_special_request",
+      "description": "Khách gọi nhiều món kèm ghi chú đặc biệt, xác nhận, hoàn tất. Kiểm tra special_requests được giữ nguyên.",
+      "table_id": "T_eval_2",
+      "difficulty": "easy",
+      "expected_outcome": "order_placed",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho bàn mình 2 tô Phở Bò Đặc Biệt, 1 ly Cà Phê Sữa Đá Sài Gòn ít đường, và 1 phần Chả Giò Tôm Cua",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Xác nhận đặt đi bạn",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-003",
+      "name": "menu_inquiry_then_order_then_confirm",
+      "description": "Khách hỏi thực đơn, rồi mới gọi món và xác nhận. Kiểm tra router chuyển đổi MENU → ORDER trong cùng session.",
+      "table_id": "T_eval_3",
+      "difficulty": "medium",
+      "expected_outcome": "order_placed",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Quán có món khai vị gì ngon không?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["Chả Giò", "Gỏi", "Súp", "Bánh Khọt"]
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Chả Giò Tôm Cua nguyên liệu gồm những gì vậy?",
+          "assert": {
+            "tool_called": "search_menu",
+            "response_should_contain_one_of": ["tôm", "cua", "miến", "mộc nhĩ"]
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Nghe hay đó, cho mình 1 phần đi",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 4,
+          "role": "user",
+          "content": "Ừ đúng rồi, xác nhận",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-004",
+      "name": "ambiguous_item_clarify_then_confirm",
+      "description": "Khách gọi tên không đầy đủ, agent gợi ý, khách làm rõ, rồi xác nhận. Kiểm tra fuzzy fallback.",
+      "table_id": "T_eval_4",
+      "difficulty": "medium",
+      "expected_outcome": "order_placed",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho tôi 1 cái bánh xèo",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "response_should_contain_one_of": ["Bánh Xèo Miền Tây", "gợi ý", "làm rõ", "Ambiguous"]
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "Lấy Bánh Xèo Miền Tây",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Xác nhận nhé",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E-005",
+      "name": "order_change_before_confirm",
+      "description": "Khách gọi món, thay đổi ý trước khi xác nhận, rồi mới confirm đơn mới. Kiểm tra agent không đặt đơn cũ.",
+      "table_id": "T_eval_5",
+      "difficulty": "medium",
+      "expected_outcome": "order_placed_with_changed_item",
+      "turns": [
+        {
+          "turn": 1,
+          "role": "user",
+          "content": "Cho mình 2 ly Sinh Tố Bơ Dừa",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "PENDING_CART"
+          }
+        },
+        {
+          "turn": 2,
+          "role": "user",
+          "content": "À không, đổi thành Sinh Tố Xoài Cát Chu đi, vẫn 2 ly",
+          "assert": {
+            "tool_called": "verify_and_prepare_order",
+            "tool_output_contains": "Xoài",
+            "tool_must_NOT_call": "confirm_order"
+          }
+        },
+        {
+          "turn": 3,
+          "role": "user",
+          "content": "Đúng rồi, xác nhận",
+          "assert": {
+            "tool_called": "confirm_order",
+            "response_contains": "SUCCESS",
+            "confirmed_items_must_contain": "Xoài"
+          }
+        }
+      ]
+    }
+  ]
+}

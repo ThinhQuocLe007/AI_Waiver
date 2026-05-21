@@ -1,7 +1,7 @@
 import os
 import sys
 from ai_waiter_core.tools.search_hybrid import RetrieverManager
-from ai_waiter_core.core.config import settings
+from ai_waiter_core.config import settings
 from ai_waiter_core.tools.utils import print_search_results
 
 def run_tests():

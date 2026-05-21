@@ -15,7 +15,8 @@ setup(
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*.sdf')),
     ] + [
         (os.path.join('share', package_name, os.path.dirname(p)), [p])
-        for p in glob('models/*/*', recursive=True)
+        for p in glob('models/**/*', recursive=True)
+        if os.path.isfile(p)
     ],
 
     install_requires=['setuptools'],

@@ -1,20 +1,13 @@
-import sys
-import os
-from pathlib import Path
-
-# Current file is in robot_ws/src/ai_waiter_core/tests/test_modular_retriever.py
-current_dir = Path(__file__).resolve().parent
-project_root = current_dir.parent.parent.parent.parent # /home/lequocthinh/Desktop/pythonCode/AI_Waiver
-
-from ai_waiter_core.tools.search_hybrid import RetrieverManager
-from ai_waiter_core.core.config import settings
+from ai_waiter_core.tools.search.hybrid_retriever import RetrieverManager
+from ai_waiter_core.config import settings
 
 def test_retriever():
     print("--- Initializing RetrieverManager ---")
     retriever = RetrieverManager()
     
-    # Path to your menu data
-    data_path = project_root / "data" / "raw"
+    # Use PROJECT_ROOT from settings
+    project_root = settings.PROJECT_ROOT
+    data_path = project_root / "assets" / "data"
     
     print(f"--- Building Database from {data_path} ---")
     if retriever.build_database([str(data_path)]):
